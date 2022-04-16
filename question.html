@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+        <style>
+            body {
+                position: relative;
+                width: relative;
+                height: relative;
+
+                background: linear-gradient(180.15deg, rgba(255, 115, 115, 0.5) 100.12%, rgba(0, 255, 10, 0.5) 100%), linear-gradient(90.24deg, #FF7878 30.85%, #0038FF 82.17%);
+                background-blend-mode: normal, multiply;
+                opacity: 0.8;
+            }
+
+            #card {
+                position: relative;
+                width: 1286px;
+                height: 660px;
+                top: 50px;
+
+                background: rgba(255, 255, 255, 0.35);
+                border: 5px solid #000000;
+                box-sizing: border-box;
+                border-radius: 40px;
+            }
+
+            #questionTitle {
+                position: relative;
+                width: 1140px;
+                height: 146px;
+                top: 20px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 40px;
+                line-height: 52px;
+                text-align: center;
+
+                color: #000000;
+            }
+
+            #customRange3 {
+                position: relative;
+                width: 80%;
+                top: 155px;
+            }
+
+            #strongDisagree {
+                position: absolute;
+                width: 158px;
+                height: 49px;
+                left: 60px;
+                top: 275px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 26px;
+                text-align: center;
+
+                color: #000000;
+            }
+
+            #neutral {
+                position: absolute;
+                width: 158px;
+                height: 49px;
+                left: 560px;
+                top: 275px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 26px;
+                text-align: center;
+
+                color: #000000;
+            }
+
+            #strongAgree {
+                position: absolute;
+                width: 158px;
+                height: 49px;
+                left: 1050px;
+                top: 275px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 26px;
+                text-align: center;
+
+                color: #000000;
+            }
+
+            #next {
+                position: relative;
+                width: 255px;
+                height: 50px;
+                top: 300px;
+
+                background: rgba(255, 255, 255, 0.3);
+                border: 2px solid #000000;
+                box-sizing: border-box;
+                border-radius: 30px;
+            }
+
+            #nextText {
+                position: relative;
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                top: -13px;
+                line-height: 32px;
+
+                color: #1E1D1D;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div id="card">
+                <h1 id="questionTitle">Military action that defies international law is sometimes justified</h1>
+                <p id="strongDisagree">Strongly Disagree</p>
+                <p id="neutral">Neutral</p>
+                <p id="strongAgree">Strongly Agree</p>
+                <input type="range" class="form-range" min="0" max="10" step="0.01" id="customRange3">
+                <button id="next"><p id="nextText">Next Question</p></button>
+            </div>
+        </center>
+        
+    </body>
+</html>
