@@ -1,3 +1,5 @@
+# Encompass
+
 ## Inspiration
 
 ## What it does
