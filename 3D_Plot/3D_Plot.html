@@ -5,18 +5,7 @@
     <div id="myDiv"></div>
 
     <script>
-        
-        function getrandom(num , mul) 
-	{
-	 var value = [ ];
-	 for(i=0;i<=num;i++)
-	 {
-	  var rand = Math.random() * mul;
-	  value.push(rand);
-	 }
-	 return value;
-	}
-
+        var co = ['red','green','blue']
 var data=[
     {
      opacity:0.4,type: 'scatter3d',
@@ -24,13 +13,16 @@ var data=[
      y: [1,2,3,4,5,6,7,8,9],
      z: [1,2,3,4,5,6,7,8,9],
      mode:'lines+markers'
+     
     }
 ];
 var layout = {
+    
    scene:{
 	xaxis: {
      range: [0,10],
 	 backgroundcolor: "rgb(200, 200, 230)",
+     title: "Economical Insights",
 	 gridcolor: "rgb(0, 0, 0)",
 	 showbackground: true,
 	 zerolinecolor: "rgb(255, 255, 255)",
@@ -38,6 +30,7 @@ var layout = {
     yaxis: {
      range: [0,10],
      backgroundcolor: "rgb(230, 200,230)",
+     title: "Personal Values",
      gridcolor: "rgb(0, 0, 0)",
      showbackground: true,
      zerolinecolor: "rgb(255, 255, 255)"
@@ -45,11 +38,20 @@ var layout = {
     zaxis: {
      range: [0,10],
      backgroundcolor: "rgb(230, 230,200)",
+     title: "Societal Norms",
      gridcolor: "rgb(0, 0, 0)",
      showbackground: true,
      zerolinecolor: "rgb(255, 255, 255)"
-    }}
+    }
+    
+    
+}
 };
-Plotly.newPlot('myDiv', data, layout);
+var config = {responsive: true}
+var update = {
+    
+    'marker.color': [co]}
+Plotly.newPlot('myDiv', data, layout, config);
+Plotly.restyle('myDiv', update)
     </script>
 </body>
