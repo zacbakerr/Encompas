@@ -136,6 +136,61 @@
                 <button id="next"><p id="nextText">Next Question</p></button>
             </div>
         </center>
-        
+        <script type="text/javascript">
+            document.getElementById("next").onclick = function() {
+                var sliderValue = document.getElementById("customRange3").value;
+
+            }
+        </script>
+        <script type="module">            
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+            import { getFirestore, doc, getDoc, getDocs, collection, updateDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyAQ1UK18ERMSTAMQVXWYKFDx9xgC9-Nj8M",
+                authDomain: "encompass-c0128.firebaseapp.com",
+                projectId: "encompass-c0128",
+                storageBucket: "encompass-c0128.appspot.com",
+                messagingSenderId: "966359275132",
+                appId: "1:966359275132:web:649a33215ccf0b95a75bf9"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            var nextQuestion = document.getElementById("next");
+
+            var questionIds = [];
+
+            var xpoints = [];
+            var xavg = [];
+
+            var ypoints = [];
+            var yavg = [];
+
+            var zpoints = [];
+            var zavg = [];
+
+            var wpoints = [];
+            var wavg = [];
+
+            var counter = 0;
+
+            const querySnapshot = await getDocs(collection(db, "/questions"));
+            querySnapshot.forEach((doc) => {
+                questionIds.push(doc.id);
+            });
+            console.log(questionIds);
+
+            nextQuestion.addEventListener("click", function() {
+                document.getElementById("customRange3").value = 5.0;
+                var questionId = questionIds[counter];
+                var currRef = doc(db, "/questions/" + questionId);
+
+                getDoc(currRef).then(function(doc) {
+                    document.getElementById("questionTitle").innerHTML = doc.data().question;
+                });
+                counter += 1;
+            })
+        </script>
     </body>
 </html>
