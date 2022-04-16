@@ -1,3 +1,5 @@
+#Encompas
+
 ## Inspiration
 In a world where a persons values define how they live, being able to accurately determine your stance on world issues is vital. We immediately noticed that all the current quizzes that help determine your stance are extremely outdated, vague, or inaccurate. 
 ## What it does
