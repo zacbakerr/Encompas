@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+        <style>
+            body{
+                position: relative;
+                width: relative;
+                height: 1906px;
+
+                background: linear-gradient(130.15deg, rgba(255, 115, 115, 0.5) 27.12%, rgba(0, 255, 10, 0.5) 100%), linear-gradient(229.24deg, #FF7878 26.85%, #FF7878 26.85%, #FF7878 26.86%, #0038FF 82.17%);
+                background-blend-mode: normal, multiply;
+                opacity: 0.8;
+            }
+
+            #title {
+                position: relative;
+                width: 416px;
+                height: 109px;
+                top: 70px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 75px;
+                line-height: 98px;
+
+                color: #FFFFFF;
+            }
+
+            #blurb {
+                position: relative;
+                width: 395px;
+                height: 66px;
+                top: 35px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 25px;
+                line-height: 32px;
+                text-align: center;
+
+                color: #FFFFFF;
+            }
+
+            #begin {
+                position: relative;
+                width: 255px;
+                height: 50px;
+                top: 70px;
+
+                background: rgba(255, 255, 255, 0.3);
+                border: 2px solid #000000;
+                box-sizing: border-box;
+                border-radius: 30px;
+            }
+
+            #beginText {
+                position: relative;
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 25px;
+                top: -18px;
+                line-height: 32px;
+
+                color: #1E1D1D;
+            }
+
+            #learnMore {
+                position: relative;
+                width: 150px;
+                height: 35px;
+                top: 200px;
+
+                background: rgba(255, 255, 255, 0.3);
+                border: 2px solid #000000;
+                box-sizing: border-box;
+                border-radius: 30px;
+            }
+
+            #learnMoreText {
+                position: relative;
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                top: -18px;
+                font-size: 17px;
+                line-height: 32px;
+
+                color: #1E1D1D;
+            }
+
+            #aboutTitle {
+                position: relative;
+                width: 422px;
+                height: 75px;
+                top: 350px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 50px;
+                line-height: 65px;
+
+                color: #FFFFFF;
+            }
+
+            #aboutBlurb {
+                position: relative;
+                width: 1232px;
+                height: 165px;
+                top: 350px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 25px;
+                line-height: 32px;
+                text-align: center;
+
+                color: #FFFFFF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="intro">
+            <center>
+            <h1 id="title">Encompass</h1>
+            <p id="blurb">The revamped, better, political compass test</p>
+            <a href="/question.html"><button id="begin"><p id="beginText">Begin Test</p></button></a>
+            </center>
+
+            <center>
+                <button id="learnMore" onclick="smoothScroll(document.getElementById('aboutTitle'))"><p id="learnMoreText">Learn More</p></button>
+            </center>
+        </div>
+        <div id="aboutSection">
+            <center>
+                <h1 id="aboutTitle">Why Encompass?</h1>
+                <p id="aboutBlurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </center>
+        </div>
+        <script type="text/javascript">
+            window.smoothScroll = function(target) {
+                    var scrollContainer = target;
+                    do {
+                        scrollContainer = scrollContainer.parentNode;
+                        if (!scrollContainer) return;
+                        scrollContainer.scrollTop += 1;
+                    } while (scrollContainer.scrollTop == 0);
+
+                    var targetY = 0;
+                    do {
+                        if (target == scrollContainer) break;
+                        targetY += target.offsetTop;
+                    } while (target = target.offsetParent);
+
+                    scroll = function(c, a, b, i) {
+                        i++; if (i > 30) return;
+                        c.scrollTop = a + (b - a) / 30 * i;
+                        setTimeout(function(){ scroll(c, a, b, i); }, 22);
+                    }
+                    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+                }
+        </script>
+    </body>
+</html>
