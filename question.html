@@ -258,7 +258,44 @@
                     });
                     counter += 1;
                 } else {
-                    console.log('done');
+                    // rainbow in hex
+                    var hex = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#008216', '#00bfff', '#0000FF', '#4B0082', '#8B00FF', '#ff00f2'];
+                    var whexs = [];
+
+                    for (let i = 0; i < wavg.length; i++) {
+                        let currValue = parseInt(wavg[i]);
+                        console.log(currValue);
+                        let currHex = hex[currValue];
+                        console.log(currHex);
+                        sessionStorage.setItem("wavg1",currHex);
+                    }
+
+                    sessionStorage.setItem("xavg1", xavg[0]);
+                    sessionStorage.setItem("xavg2", xavg[1]);
+                    sessionStorage.setItem("xavg3", xavg[2]);
+                    sessionStorage.setItem("xavg4", xavg[3]);
+                    sessionStorage.setItem("xavg5", xavg[4]);
+                    sessionStorage.setItem("xavg6", xavg[5]);
+                    sessionStorage.setItem("xavg7", xavg[6]);
+
+                    sessionStorage.setItem("yavg1", yavg[0]);
+                    sessionStorage.setItem("yavg2", yavg[1]);
+                    sessionStorage.setItem("yavg3", yavg[2]);
+                    sessionStorage.setItem("yavg4", yavg[3]);
+                    sessionStorage.setItem("yavg5", yavg[4]);
+                    sessionStorage.setItem("yavg6", yavg[5]);
+                    sessionStorage.setItem("yavg7", yavg[6]);
+                    
+                    sessionStorage.setItem("zavg1", zavg[0]);
+                    sessionStorage.setItem("zavg2", zavg[1]);
+                    sessionStorage.setItem("zavg3", zavg[2]);
+                    sessionStorage.setItem("zavg4", zavg[3]);
+                    sessionStorage.setItem("zavg5", zavg[4]);
+                    sessionStorage.setItem("zavg6", zavg[5]);
+                    sessionStorage.setItem("zavg7", zavg[6]);
+                    
+
+                    location.href = "results.html";
                 }
                 if (counter % 10 == 0) {
                     var sum = 0.0;
@@ -290,8 +327,7 @@
                         wavg.push(sum / wpoints.length);
                     }
                 }
-                document.getElementById("customRange3").value = 5.0;
-                
+                document.getElementById("customRange3").value = 5.0;       
             })
         </script>
     </body>

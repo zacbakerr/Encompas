@@ -4,11 +4,11 @@
         <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
         <style type="text/css">
             body{
                 position: relative;
-                width: 100%;
+                width: relative;
                 height: 1906px;
 
                 background: linear-gradient(130.15deg, rgba(255, 115, 115, 0.5) 27.12%, rgba(0, 255, 10, 0.5) 100%), linear-gradient(229.24deg, #FF7878 26.85%, #FF7878 26.85%, #FF7878 26.86%, #0038FF 82.17%);
@@ -18,9 +18,9 @@
 
             #card {
                 position: absolute;
-                width: 20%;
+                width:29%;
                 height: 39%;
-                right: 30px;
+                right: 40px;
                 top: 10px;
 
                 background: rgba(255, 255, 255, 0.4);
@@ -30,10 +30,10 @@
             }
 
             #title {
-                position: absolute;
+                position: relative;
                 width: 357px;
                 height: 57px;
-                left: 22px;
+                /* left: 22px; */
                 top: 5px;
 
                 font-family: 'IBM Plex Sans', sans-serif;
@@ -49,8 +49,10 @@
             #item {
                 position: relative;
                 width: 90%;
-                height: 785px;
-                top: 78px;
+                height: relative;
+                top: -30px;
+                left: -10px;
+                padding-top: 15px;
 
                 font-family: 'IBM Plex Sans', sans-serif;
                 font-style: normal;
@@ -65,8 +67,12 @@
 
             #myDiv {
                 position: relative;
-                width: 50%;
-                background: #FFFFFF;
+                width: 79%;
+                height: 49%;
+                left: -77px;
+                top: -100px;
+
+                /* background-color: rgba(0, 0, 0, .1); */
             }
         </style>
     </head>
@@ -74,33 +80,75 @@
         <div id="myDiv" ></div>
 
         <div id="card">
+            <center>
+
             <h1 id="title">How to read your results</h1>
             <!-- create bulleted list -->
             <ul id="list">
-                <center>
                 <li id="item">
                     Everything is on a scale of 0-10 except for the color aspect
                 </li>
-                <li id="f">
-                    The X Axis is Economical Insights with 0 being a command market economy and 10 being a Laissez Faire economy
+                <li id="item">
+                    The X Axis is Economical Insights with 0 being a <b>command market economy</b> and 10 being a <b>Laissez Faire economy</b>
                 </li>
+                <li id="item">
+                    The Y Axis is Government Policies with 0 being <b>libertarian</b> and 10 begin <b>authoritarian</b>
+                </li>
+                <li id="item">
+                    The Z Axis is Societal Norms with 0 being <b>traditional</b> and 10 being <b>progressive</b>
+                </li>
+                <li id="item">
+                    The color aspect goes from red to pink and follows the pattern of the rainbow (with the addition of pink) with red being closest to a <b>group-oriented</b> person and pink being an <b>individualistic</b> person
+                </li>
+            </ul>
                 </center>
         </div>
 
         <script>
-        var co = ['red','green','blue','#4287f5']
+        var xavg1 = sessionStorage.getItem("xavg1");
+        var xavg2 = sessionStorage.getItem("xavg2");
+        var xavg3 = sessionStorage.getItem("xavg3");
+        var xavg4 = sessionStorage.getItem("xavg4");
+        var xavg5 = sessionStorage.getItem("xavg5");
+        var xavg6 = sessionStorage.getItem("xavg6");
+        var xavg7 = sessionStorage.getItem("xavg7");
+
+        var yavg1 = sessionStorage.getItem("yavg1");
+        var yavg2 = sessionStorage.getItem("yavg2");
+        var yavg3 = sessionStorage.getItem("yavg3");
+        var yavg4 = sessionStorage.getItem("yavg4");
+        var yavg5 = sessionStorage.getItem("yavg5");
+        var yavg6 = sessionStorage.getItem("yavg6");
+        var yavg7 = sessionStorage.getItem("yavg7");
+
+        var zavg1 = sessionStorage.getItem("zavg1");
+        var zavg2 = sessionStorage.getItem("zavg2");
+        var zavg3 = sessionStorage.getItem("zavg3");
+        var zavg4 = sessionStorage.getItem("zavg4");
+        var zavg5 = sessionStorage.getItem("zavg5");
+        var zavg6 = sessionStorage.getItem("zavg6");
+        var zavg7 = sessionStorage.getItem("zavg7");
+
+        var xavg = [xavg1, xavg2, xavg3, xavg4, xavg5, xavg6, xavg7];
+        var yavg = [yavg1, yavg2, yavg3, yavg4, yavg5, yavg6, yavg7];
+        var zavg = [zavg1, zavg2, zavg3, zavg4, zavg5, zavg6, zavg7];
+
+        var color = sessionStorage.getItem("wavg1");
+        console.log(color);
+        var co = [color, color, color, color, color, color, color];
         var data=[
         {
             opacity:0.4,type: 'scatter3d',
-            x: [9.8,4,5.7,4,8.2,1,2.1,3.2,9.1],
-            y: [2.4,9.8,5.7,4.3,4.2,7.7,5.5,4.1,1.2],
-            z: [1,2,3,4,5,6,7,8,9],
+            x: xavg,
+            y: yavg,
+            z: zavg,
         mode:'lines+markers'
      
         }
         ];
         var layout = {
-    
+            paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
         scene:{
 	    xaxis: {
             range: [0,10],
