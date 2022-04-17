@@ -87,10 +87,8 @@
                 border-radius: 30px;
             }
             #Voting_Info_Title {
-                position: absolute;
-                width: 200px;
-                height: 310px;
-                left: 400px;
+                position: relative;
+                width: 300px;
                 top: 25px;
 
                 font-family: 'IBM Plex Sans', sans-serif;
@@ -105,9 +103,8 @@
             #Voting_Info_Item {
                 position: relative;
                 width: 90%;
-                height: 685px;
                 left: 20px;
-                top: 78px;
+                top: 30px;
 
                 font-family: 'IBM Plex Sans', sans-serif;
                 font-style: normal;
@@ -124,7 +121,7 @@
                 position: absolute;
                 width: 600px;
                 height: 20px;
-                top: 375px;
+                top: 285px;
                 left: 230px;
 
                 font-family: 'IBM Plex Sans', sans-serif;
@@ -140,7 +137,7 @@
                 position: absolute;
                 width: 600px;
                 height: 20px;
-                top: 275px;
+                top: 250px;
                 left: 230px;
 
                 font-family: 'IBM Plex Sans', sans-serif;
@@ -150,6 +147,29 @@
                 line-height: 32px;
 
                 color: #2f00ff;
+            }
+
+            #tweetInfo{
+                position: absolute;
+                width: 600px;
+                height: 20px;
+                top: 325px;
+                left: 230px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+
+                color: #000000;
+            }
+
+            #tweetButton {
+                position: relative;
+                width: 100px;
+                height: 500px;
+                top: 215px;
             }
 
         </style>
@@ -273,11 +293,15 @@
     </script>
     <center>
     <div id="Voting_Info">
-        <h1 id="Voting_Info_Title">Further Steps</h1>
+        <h1 id="Voting_Info_Title">Going the Extra Mile</h1>
         <p id="Voting_Info_Item">Now that you've understood your political views on a more advanced level, we encourage you to go out and vote! According to the National Civic League, local voter turnout is just 6% on the low end and only 46% on the high end, which is much lower than presidentail voter turnout. Below we'll have some links to give you more info on how to vote in your local and state elections. </p>
 
         <a href="https://www.usa.gov/election-office" id="Voting_Info_State_Link">Click here to find more about your state elections</a>
         <a href="https://www.usvotefoundation.org/vote/state-elections/state-election-dates-deadlines.html" id="Voting_Info_Foundation_Link">Click here to find you state election deadline</a>
+        <p id="tweetInfo">Share the site to Twitter as well! It can help others find where they stand in ways they haven't gotten to see before. </p>
+        <div id="tweetButton"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="I just took the Encompas political survey, and I learned so much about myself! I scored a Take it yourself: " data-url="https://zacbakerr.github.io/Encompas/" data-lang="en" data-show-count="false">Tweet</a>    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        </div>
     </div>
     </center>
     </body>
