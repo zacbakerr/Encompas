@@ -207,13 +207,21 @@
         var zavg6 = sessionStorage.getItem("zavg6");
         var zavg7 = sessionStorage.getItem("zavg7");
 
+        var wavg1 = sessionStorage.getItem("wavg1");
+        var wavg2 = sessionStorage.getItem("wavg2");
+        var wavg3 = sessionStorage.getItem("wavg3");
+        var wavg4 = sessionStorage.getItem("wavg4");
+        var wavg5 = sessionStorage.getItem("wavg5");
+        var wavg6 = sessionStorage.getItem("wavg6");
+        var wavg7 = sessionStorage.getItem("wavg7");
+
         var xavg = [0, xavg1, xavg2, xavg3, xavg4, xavg5, xavg6, xavg7];
         var yavg = [0,yavg1, yavg2, yavg3, yavg4, yavg5, yavg6, yavg7];
         var zavg = [0, zavg1, zavg2, zavg3, zavg4, zavg5, zavg6, zavg7];
 
         var color = sessionStorage.getItem("wavg1");
         console.log(color);
-        var co = [color, color, color, color, color, color, color];
+        var co = [0, wavg1, wavg2, wavg3, wavg4, wavg5, wavg6, wavg7];
         var data=[
         {
             opacity:0.4,type: 'scatter3d',

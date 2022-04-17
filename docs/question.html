@@ -266,8 +266,7 @@
                         let currValue = parseInt(wavg[i]);
                         console.log(currValue);
                         let currHex = hex[currValue];
-                        console.log(currHex);
-                        sessionStorage.setItem("wavg1",currHex);
+                        whexs.push(currHex);
                     }
 
                     sessionStorage.setItem("xavg1", xavg[0]);
@@ -293,6 +292,14 @@
                     sessionStorage.setItem("zavg5", zavg[4]);
                     sessionStorage.setItem("zavg6", zavg[5]);
                     sessionStorage.setItem("zavg7", zavg[6]);
+
+                    sessionStorage.setItem("wavg1", wavg[0]);
+                    sessionStorage.setItem("wavg2", wavg[1]);
+                    sessionStorage.setItem("wavg3", wavg[2]);
+                    sessionStorage.setItem("wavg4", wavg[3]);
+                    sessionStorage.setItem("wavg5", wavg[4]);
+                    sessionStorage.setItem("wavg6", wavg[5]);
+                    sessionStorage.setItem("wavg7", wavg[6]);
                     
 
                     location.href = "https://zacbakerr.github.io/Encompas/results.html";
