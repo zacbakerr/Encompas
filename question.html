@@ -132,7 +132,7 @@
                 <p id="strongDisagree">Strongly Disagree</p>
                 <p id="neutral">Neutral</p>
                 <p id="strongAgree">Strongly Agree</p>
-                <input type="range" class="form-range" min="0" max="10" step="0.01" id="customRange3">
+                <input type="range" class="form-range" min=0 max=10 step=0.01 id="customRange3">
                 <button id="next"><p id="nextText">Next Question</p></button>
             </div>
         </center>
@@ -160,6 +160,7 @@
             var nextQuestion = document.getElementById("next");
 
             var questionIds = [];
+            var questionIdsRandom = [];
 
             var xpoints = [];
             var xavg = [];
@@ -175,21 +176,122 @@
 
             var counter = 0;
 
-            const querySnapshot = await getDocs(collection(db, "/questions"));
-            querySnapshot.forEach((doc) => {
+            const querySnapshot1 = await getDocs(collection(db, "/questions"));
+            const querySnapshot2 = await getDocs(collection(db, "/questions2"));
+            const querySnapshot3 = await getDocs(collection(db, "/questions3"));
+
+            var oneLength = 0;
+            var twoLength = 0;
+            var threeLength = 0;
+
+            querySnapshot1.forEach((doc) => {
                 questionIds.push(doc.id);
             });
-            console.log(questionIds);
+            oneLength = questionIds.length;
+
+            querySnapshot2.forEach((doc) => {
+                questionIds.push(doc.id);
+            });
+            twoLength = questionIds.length;
+
+            querySnapshot3.forEach((doc) => {
+                questionIds.push(doc.id);
+            });
+            threeLength = questionIds.length;
 
             nextQuestion.addEventListener("click", function() {
-                document.getElementById("customRange3").value = 5.0;
+                var currValue = document.getElementById("customRange3").value;
                 var questionId = questionIds[counter];
-                var currRef = doc(db, "/questions/" + questionId);
+                
+                if (counter < oneLength) {
+                    var currRef = doc(db, "/questions/" + questionId);
 
-                getDoc(currRef).then(function(doc) {
-                    document.getElementById("questionTitle").innerHTML = doc.data().question;
-                });
-                counter += 1;
+                    getDoc(currRef).then(function(doc) {
+                        document.getElementById("questionTitle").innerHTML = doc.data().question;
+                        if (doc.data().category == "Economy") {
+                            xpoints.push(currValue);
+                        } else if (doc.data().category == "Government") {
+                            ypoints.push(currValue);
+                        } else if (doc.data().category == "Social Values") {
+                            zpoints.push(currValue);
+                        } else if (doc.data().category == "Personal Values") {
+                            wpoints.push(currValue);
+                        } else {
+                            console.log(questionId);
+                        }
+                    });
+                    counter += 1;
+                } else if (counter < twoLength) {
+                    var currRef = doc(db, "/questions2/" + questionId);
+
+                    getDoc(currRef).then(function(doc) {
+                        document.getElementById("questionTitle").innerHTML = doc.data().question;
+                        if (doc.data().category == "Economy") {
+                            xpoints.push(currValue);
+                        } else if (doc.data().category == "Government") {
+                            ypoints.push(currValue);
+                        } else if (doc.data().category == "Social Values") {
+                            zpoints.push(currValue);
+                        } else if (doc.data().category == "Personal Values") {
+                            wpoints.push(currValue);
+                        } else {
+                            console.log(questionId);
+                        }
+                    });
+                    counter += 1;
+                } else if (counter < threeLength) {
+                    var currRef = doc(db, "/questions3/" + questionId);
+
+                    getDoc(currRef).then(function(doc) {
+                        document.getElementById("questionTitle").innerHTML = doc.data().question;
+                        if (doc.data().category == "Economy") {
+                            xpoints.push(currValue);
+                        } else if (doc.data().category == "Government") {
+                            ypoints.push(currValue);
+                        } else if (doc.data().category == "Social Values") {
+                            zpoints.push(currValue);
+                        } else if (doc.data().category == "Personal Values") {
+                            wpoints.push(currValue);
+                        } else {
+                            console.log(questionId);
+                        }
+                    });
+                    counter += 1;
+                } else {
+                    console.log('done');
+                }
+                if (counter % 10 == 0) {
+                    var sum = 0.0;
+                    for (let i = 0; i < xpoints.length; i++) {
+                        sum += parseFloat(xpoints[i]);
+                    }
+                    if (xpoints.length > 0) {
+                        xavg.push(sum / xpoints.length);
+                    }
+                    sum = 0.0;
+                    for (let i = 0; i < ypoints.length; i++) {
+                        sum += parseFloat(ypoints[i]);
+                    }
+                    if (ypoints.length > 0) {
+                        yavg.push(sum / ypoints.length);
+                    }
+                    sum = 0.0;
+                    for (let i = 0; i < zpoints.length; i++) {
+                        sum += parseFloat(zpoints[i]);
+                    }
+                    if (zpoints.length > 0) {
+                        zavg.push(sum / zpoints.length);
+                    }
+                    sum = 0.0;
+                    for (let i = 0; i < wpoints.length; i++) {
+                        sum += parseFloat(wpoints[i]);
+                    }
+                    if (wpoints.length > 0) {
+                        wavg.push(sum / wpoints.length);
+                    }
+                }
+                document.getElementById("customRange3").value = 5.0;
+                
             })
         </script>
     </body>
