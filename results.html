@@ -68,6 +68,120 @@
                 width: 50%;
                 background: #FFFFFF;
             }
+            #Voting_Info {
+                position: relative;
+                width: 75%;
+                height: 500px;
+                
+                top: 150px;
+
+                background: rgba(255, 255, 255, 0.4);
+                border: 3px solid #000000;
+                box-sizing: border-box;
+                border-radius: 30px;
+            }
+            #Voting_Info_Title {
+                position: absolute;
+                width: 200px;
+                height: 310px;
+                left: 400px;
+                top: 25px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 28px;
+                line-height: 36px;
+                
+
+                color: #000000;
+            }
+            #Voting_Info_Item {
+                position: relative;
+                width: 90%;
+                height: 785px;
+                left: 20px;
+                top: 78px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+
+                text-align: left;
+
+                color: #000000;
+            }
+            #Voting_Info_Foundation{
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                left: 20px;
+                top: 350px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+
+                text-align: left;
+
+                color: #000000;
+            }
+            #Voting_Info_Foundation_Link{
+                position: absolute;
+                width: 1200px;
+                height: 200px;
+                left: 110px;
+                top: 430px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+
+                text-align: left;
+
+                color: #0026ff;
+            }
+            #Voting_Info_State_Labels{
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                left: 20px;
+                top: 230px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+
+                text-align: left;
+
+                color: #000000;
+            }
+            #Voting_Info_State_Link{
+                position: absolute;
+                width: 600px;
+                height: 20px;
+                left: 110px;
+                top: 313px;
+
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+
+                text-align: left;
+
+                color: #2f00ff;
+            }
+
         </style>
     </head>
     <body>
@@ -134,8 +248,16 @@
         var update = {
     
             'marker.color': [co]}
-Plotly.newPlot('myDiv', data, layout, config);
-Plotly.restyle('myDiv', update)
+    Plotly.newPlot('myDiv', data, layout, config);
+    Plotly.restyle('myDiv', update)
     </script>
+    <div id="Voting_Info">
+        <h1 id="Voting_Info_Title">Further Steps</h1>
+        <p id="Voting_Info_Item">Now that you've understood your political views on a more advanced level, we encourage you to go out and vote! According to the National Civic League, local voter turnout is just 6% on the low end and only 46% on the high end, which is much lower than presidentail voter turnout. Below we'll have some links to give you more info on how to vote in your local and state elections. </p>
+        <p id="Voting_Info_State_Labels">Click here to find more about your State elections:</p>
+        <p id="Voting_Info_Foundation">Click here to find your state election deadline: </p>
+        <a href="url" id="Voting_Info_State_Link">https://www.usa.gov/election-office</a>
+        <a href="url" id="Voting_Info_Foundation_Link">https://www.usvotefoundation.org/vote/state-elections/state-election-dates-deadlines.htm</a>
+    </div>
     </body>
 </html>
