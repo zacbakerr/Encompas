@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
@@ -17,9 +18,9 @@
 
             #card {
                 position: absolute;
-                width: 401px;
+                width: 20%;
                 height: 39%;
-                right: 50px;
+                right: 30px;
                 top: 10px;
 
                 background: rgba(255, 255, 255, 0.4);
@@ -61,9 +62,17 @@
 
                 color: #000000;
             }
+
+            #myDiv {
+                position: relative;
+                width: 50%;
+                background: #FFFFFF;
+            }
         </style>
     </head>
     <body>
+        <div id="myDiv" ></div>
+
         <div id="card">
             <h1 id="title">How to read your results</h1>
             <!-- create bulleted list -->
@@ -77,5 +86,56 @@
                 </li>
                 </center>
         </div>
+
+        <script>
+        var co = ['red','green','blue','#4287f5']
+        var data=[
+        {
+            opacity:0.4,type: 'scatter3d',
+            x: [9.8,4,5.7,4,8.2,1,2.1,3.2,9.1],
+            y: [2.4,9.8,5.7,4.3,4.2,7.7,5.5,4.1,1.2],
+            z: [1,2,3,4,5,6,7,8,9],
+        mode:'lines+markers'
+     
+        }
+        ];
+        var layout = {
+    
+        scene:{
+	    xaxis: {
+            range: [0,10],
+	        backgroundcolor: "rgb(200, 200, 230)",
+            title: "Economical Insights",
+	        gridcolor: "rgb(0, 0, 0)",
+	        showbackground: true,
+	        zerolinecolor: "rgb(255, 255, 255)",
+	    }, 
+        yaxis: {
+            range: [0,10],
+            backgroundcolor: "rgb(230, 200,230)",
+            title: "Government Policies",
+            gridcolor: "rgb(0, 0, 0)",
+            showbackground: true,
+            zerolinecolor: "rgb(255, 255, 255)"
+        }, 
+        zaxis: {
+            range: [0,10],
+            backgroundcolor: "rgb(230, 230,200)",
+            title: "Societal Norms",
+            gridcolor: "rgb(0, 0, 0)",
+            showbackground: true,
+            zerolinecolor: "rgb(255, 255, 255)"
+        }
+    
+    
+    }
+    };
+        var config = {responsive: true}
+        var update = {
+    
+            'marker.color': [co]}
+Plotly.newPlot('myDiv', data, layout, config);
+Plotly.restyle('myDiv', update)
+    </script>
     </body>
 </html>
