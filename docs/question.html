@@ -266,8 +266,7 @@
                         let currValue = parseInt(wavg[i]);
                         console.log(currValue);
                         let currHex = hex[currValue];
-                        console.log(currHex);
-                        sessionStorage.setItem("wavg1",currHex);
+                        whexs.push(currHex);
                     }
 
                     sessionStorage.setItem("xavg1", xavg[0]);
@@ -309,8 +308,13 @@
                     currYs.push(yavg[5]);
                     currZs.push(zavg[5]);
 
-                    console.log(currXs, currYs, currZs);
-
+                    sessionStorage.setItem("wavg1", wavg[0]);
+                    sessionStorage.setItem("wavg2", wavg[1]);
+                    sessionStorage.setItem("wavg3", wavg[2]);
+                    sessionStorage.setItem("wavg4", wavg[3]);
+                    sessionStorage.setItem("wavg5", wavg[4]);
+                    sessionStorage.setItem("wavg6", wavg[5]);
+                    sessionStorage.setItem("wavg7", wavg[6]);
                     
                     updateDoc(userRef, {
                         Xs: currXs,
@@ -318,12 +322,7 @@
                         Zs: currZs
                     });
 
-                    // wait 10 seconds
-                    setTimeout(function() {
-                        window.location.href = "results.html";
-                    }
-                    , 10000);
-
+                    location.href = "https://zacbakerr.github.io/Encompas/results.html";
                 }
                 if (counter % 10 == 0) {
                     var sum = 0.0;
