@@ -293,9 +293,37 @@
                     sessionStorage.setItem("zavg5", zavg[4]);
                     sessionStorage.setItem("zavg6", zavg[5]);
                     sessionStorage.setItem("zavg7", zavg[6]);
-                    
 
-                    location.href = "results.html";
+                    let currXs = [];
+                    let currYs = [];
+                    let currZs = [];
+                    const userRef = doc(db, "/userData/", "ESrIkz3QgkWSQhtrWuRn");
+
+                    getDoc((userRef)).then(docSnap => {
+                        currXs = docSnap.data().Xs;
+                        currYs = docSnap.data().Ys;
+                        currZs = docSnap.data().Zs;
+                    });
+
+                    currXs.push(xavg[5]);
+                    currYs.push(yavg[5]);
+                    currZs.push(zavg[5]);
+
+                    console.log(currXs, currYs, currZs);
+
+                    
+                    updateDoc(userRef, {
+                        Xs: currXs,
+                        Ys: currYs,
+                        Zs: currZs
+                    });
+
+                    // wait 10 seconds
+                    setTimeout(function() {
+                        window.location.href = "results.html";
+                    }
+                    , 10000);
+
                 }
                 if (counter % 10 == 0) {
                     var sum = 0.0;
